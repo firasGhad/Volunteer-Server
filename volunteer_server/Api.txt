@@ -1,0 +1,35 @@
+create event
+post req
+http://localhost:3001/events
+{
+	"location": "abu_sinan",
+	"name": "volunteer",
+	"description": "cleaning",
+	"creator": "1",
+	"participents": "firas, eyab",
+	"creationTime": "12:00:00",
+	"creationDate": "22-12-20",
+	"startTime": "12:00:00",
+	"endTime": "12:00:00",
+	"startDate": "22-12-20",
+	"endDate": "22-12-20",
+	"participentsLimit": "1",
+	"status": "active"
+}
+----------------------------------------
+join event
+http://localhost:3001/events/join_event
+post request
+{
+	"event_id": "2"
+	
+}
+----------------------------------------------------
+get all events
+http://localhost:3001/events
+get request
+--------------------------------------
+get specific event with id including the creator data
+http://localhost:3001/events/:id
+get req
+------------------------------------------
