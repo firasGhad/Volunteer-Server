@@ -137,6 +137,63 @@ INSERT INTO `events_participents` VALUES (1,2,1),(2,2,2);
 UNLOCK TABLES;
 
 --
+-- Table structure for table `organizations`
+--
+
+DROP TABLE IF EXISTS `organizations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `organizations` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `phone` varchar(45) DEFAULT NULL,
+  `t_phone` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `address` varchar(45) DEFAULT NULL,
+  `city` varchar(45) DEFAULT NULL,
+  `zip` varchar(45) DEFAULT NULL,
+  `fax` varchar(45) DEFAULT NULL,
+  `rank` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `organizations`
+--
+
+LOCK TABLES `organizations` WRITE;
+/*!40000 ALTER TABLE `organizations` DISABLE KEYS */;
+INSERT INTO `organizations` VALUES (1,'apple','2','2','@hy','2','acre','11111','11111','1','123');
+/*!40000 ALTER TABLE `organizations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `organizations_members`
+--
+
+DROP TABLE IF EXISTS `organizations_members`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `organizations_members` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `organization_id` varchar(45) DEFAULT NULL,
+  `user_id` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `organizations_members`
+--
+
+LOCK TABLES `organizations_members` WRITE;
+/*!40000 ALTER TABLE `organizations_members` DISABLE KEYS */;
+/*!40000 ALTER TABLE `organizations_members` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -156,7 +213,7 @@ CREATE TABLE `users` (
   `user_name` varchar(45) DEFAULT NULL,
   `rank` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,7 +222,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'firas','sam','@hy','123','1231','123','acre','male','s',NULL),(2,'2','2','2','2','2','2','2','male','2',NULL),(3,'2','2','2','2','2','2','2','male','2',NULL),(4,'2','2','2','2','2','2','2','male','2',NULL),(5,'2','2','2','2','2','2','2','male','2',1);
+INSERT INTO `users` VALUES (1,'firas','sam','@hy','123','1231','123','acre','male','s',NULL),(2,'2','2','2','2','2','2','2','male','2',NULL),(3,'2','2','2','2','2','2','2','male','2',NULL),(4,'2','2','2','2','2','2','2','male','2',NULL),(5,'2','2','2','2','2','2','2','male','2',1),(6,NULL,NULL,'@hy','123','2','2','2',NULL,NULL,1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -178,4 +235,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-20 23:20:01
+-- Dump completed on 2020-05-21  2:28:31
