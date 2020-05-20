@@ -10,6 +10,8 @@ const secretKey = '9872buscalCookies0Secret7Key1059'
 var indexRouter = require('./routes/index');
 var eventsRouter = require('./routes/events');
 var citiesRouter = require('./routes/cities');
+var signUpRouter = require('./routes/signUp');
+
 
 var schedule = require('node-schedule');
 
@@ -48,6 +50,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/events', eventsRouter);
 app.use('/cities', citiesRouter);
+app.use('/signup', signUpRouter);
+
 
 
 

@@ -36,3 +36,24 @@ get req
 get events filtered by city
 http://localhost:3001/events?city=אבו גוש
 get req
+http://localhost:3001/events?city=abu_sinan&type=food
+
+----------------------------------------
+sign up- post request
+http://localhost:3001/signup
+{
+	"first_name": "2",
+	"last_name": "2",
+	"user_name": "2",
+	"phone": "2",
+	"t_phone": "2",
+	"email": "2",
+	"password": "2",
+	"address": "2",
+	"gender": "male"
+}
+---------------------------------------------
+events that the user joined 
+http://localhost:3001/events/includes_me
+--------------------------------------------------
+get all the participents info for specific event
