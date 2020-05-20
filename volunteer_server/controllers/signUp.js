@@ -1,4 +1,4 @@
-const { users } = require('../models')
+const { users, organizations } = require('../models')
 const { Op } = require("sequelize");
 
 
@@ -25,9 +25,32 @@ const signUp = async (userDetails, userId) => {
 
 }
 
+const organizationSignUp = async (userDetails, userId) => {
+    try {
+        const newUser = await organizations.create({
+            name: userDetails.name,
+            city: userDetails.city,
+            zip: userDetails.zip,
+            phone: userDetails.phone,
+            t_phone: userDetails.t_phone,
+            email: userDetails.email,
+            password: userDetails.password,
+            address: userDetails.address,
+            fax: userDetails.fax,
+            rank: 1
+        })
+    
+        return "נוצר בהצלחה"
+      }  catch (err) {
+        throw new Error(err.message)
+    }
+
+}
+
 
 
 module.exports = {
-    signUp
+    signUp,
+    organizationSignUp
    
 }

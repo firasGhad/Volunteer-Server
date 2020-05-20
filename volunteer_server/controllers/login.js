@@ -7,7 +7,7 @@ const customersLogin = async (userDetails) => {
         const user = await users.findOne({
             attributes: ['id', 'first_name', 'last_name'],
             where: {
-                email: userDetails.email,
+                user_name: userDetails.user_name,
                 password: userDetails.password,
             }
         })

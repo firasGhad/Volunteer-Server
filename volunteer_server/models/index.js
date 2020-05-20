@@ -6,7 +6,7 @@ const Users = require('./users');
 const EventsParticipents = require('./events_participents');
 const Cities = require('./cities');
 const Organizations = require('./organizations');
-
+const OrganizationsMembers = require('./organizations_members');
 // events_participents
 // const Companies = require('./companies');
 // const Companies_files = require('./companies_files');
@@ -33,6 +33,7 @@ const users = Users(db, Sequelize);
 const events_participents = EventsParticipents(db, Sequelize);
 const cities = Cities(db, Sequelize);
 const organizations = Organizations(db, Sequelize);
+const organizations_members = OrganizationsMembers(db, Sequelize);
 
 
 // const available_vehicles = Available_vehicles(db, Sequelize);
@@ -142,5 +143,6 @@ module.exports = {
   users,
   events_participents,
   cities,
-  organizations
+  organizations,
+  organizations_members
 }
