@@ -2,18 +2,85 @@ const { events, users, events_participents } = require('../models')
 const { Op } = require("sequelize");
 const Sequelize = require('sequelize');
 
+const getEventsIncludesMeAsParticipent = async () => {
+  try {
+    let allEvents = await events_participents.findAll({
+      where: {
+        user_id: 1
+      }
+
+    });
+    allEvents = allEvents.map((event) => {
+      return event.event_id
+    })
+    allEvents = await events.findAll({
+      where: {
+        id:
+      {
+        [Op.in]: allEvents
+      }
+      }
+    })
+    
+      return allEvents;
+  } catch (error) {
+    throw new Error(`Can't get events: ${error.message}`);
+  }
 
 
-const getEvents = async (city) => {
+}
+
+const getEventParticipents = async (id) => {
+  try {
+    let allUsers = await events_participents.findAll({
+      attributes: ['user_id'],
+      where: {
+        event_id: id
+      }
+    });
+
+    allUsers = allUsers.map((user) => user.user_id)
+
+    
+
+
+    allUsers = await users.findAll({
+      where: {
+        id:
+      {
+        [Op.in]: allUsers
+      }
+      }
+    })
+    
+      return allUsers;
+  } catch (error) {
+    throw new Error(`Can't get events: ${error.message}`);
+  }
+
+
+}
+
+
+
+const getEvents = async (query) => {
   try {
     let where ={};
-    if(city != 'all'){
+    if(query.city != 'all'){
       where = {
-        location: city
+        location: query.city
+      }
+    }
+    if(query.type != 'all'){
+      where = {
+        type: query.type
       }
     }
     let allEvents = await events.findAll({
-      where: where
+      where: where,
+      include: [{
+        model: users,
+      }]
     });
       return allEvents;
   } catch (error) {
@@ -83,7 +150,9 @@ const createEvent = async (event) => {
     start_date: event.startDate,
     end_time: event.endTime,
     end_date: event.endDate,
-    status: event.status
+    status: event.status,
+    type: event.type,
+    rating: 1
 
     })
 
@@ -99,7 +168,9 @@ module.exports = {
   getEvents,
   getEvent,
   joinEvent,
-  getMyEvents
+  getMyEvents,
+  getEventsIncludesMeAsParticipent,
+  getEventParticipents
 
 }
 

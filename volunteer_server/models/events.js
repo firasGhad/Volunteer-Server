@@ -19,6 +19,9 @@ module.exports = (db, type) => {
         status: {
             type: type.STRING(50)
         },
+        type: {
+            type: type.STRING(50)
+        },
         description: {
             type: type.TEXT
         },
@@ -26,6 +29,9 @@ module.exports = (db, type) => {
             type: type.TEXT
         },
         participents_limit: {
+            type: type.INTEGER
+        },
+        rating: {
             type: type.INTEGER
         },
         creation_time: {

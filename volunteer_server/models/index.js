@@ -124,6 +124,9 @@ const cities = Cities(db, Sequelize);
 // vehicle_type.hasMany(vehicle, { foreignKey: 'type_id' })
 // vehicle.belongsTo(vehicle_type, { foreignKey: 'type_id' })
 
+users.belongsToMany(events, { through: events_participents, foreignKey: 'user_id' })
+events.belongsToMany(users, { through: events_participents, foreignKey: 'event_id' })
+
 // // relationship orders events
 users.hasMany(events, { foreignKey: 'creator' })
 events.belongsTo(users, { foreignKey: 'creator' })

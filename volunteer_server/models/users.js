@@ -33,6 +33,9 @@ module.exports = (db, type) => {
         },
         gender: {
             type: type.ENUM('male', 'female', 'other', 'prefere not to say')
+        },
+        rank: {
+            type: type.INTEGER
         }
     }, { timestamps: false, underscored: true })
 } 
