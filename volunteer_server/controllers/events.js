@@ -4,9 +4,17 @@ const Sequelize = require('sequelize');
 
 
 
-const getEvents = async () => {
+const getEvents = async (city) => {
   try {
-    let allEvents = await events.findAll();
+    let where ={};
+    if(city != 'all'){
+      where = {
+        location: city
+      }
+    }
+    let allEvents = await events.findAll({
+      where: where
+    });
       return allEvents;
   } catch (error) {
     throw new Error(`Can't get events: ${error.message}`);
@@ -15,6 +23,20 @@ const getEvents = async () => {
 
 }
 
+const getMyEvents = async () => {
+  try {
+    let allEvents = await events.findAll({
+      where: {
+        creator: 1
+      }
+    });
+      return allEvents;
+  } catch (error) {
+    throw new Error(`Can't get events: ${error.message}`);
+  }
+
+
+}
 
 const getEvent = async (id) => {
   try {
@@ -67,7 +89,7 @@ const createEvent = async (event) => {
 
     return "נוצר בהצלחה"
   } catch (err) {
-    throw new Error(`Can't create service: ${err.message}`)
+    throw new Error(`Can't create event: ${err.message}`)
   }
 }
 
@@ -76,7 +98,8 @@ module.exports = {
   createEvent,
   getEvents,
   getEvent,
-  joinEvent
+  joinEvent,
+  getMyEvents
 
 }
 

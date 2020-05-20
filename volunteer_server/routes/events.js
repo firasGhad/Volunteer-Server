@@ -2,6 +2,16 @@ var express = require('express');
 var router = express.Router();
 const eventsController = require('../controllers/events')
 
+
+// get my events
+router.get('/my_events', async function (req, res, next) {
+  try {
+    const events = await eventsController.getMyEvents()
+    res.status(200).json(events);
+  } catch (err) {
+    res.status(500).json(err.message)
+  }
+});
 // router.get('/getusercompanyordersandonetookthem', authRoles(5, 6), async function (req, res, next) {
 //   const page = req.query.page || 1;
 //   const size = req.query.size || 20;
@@ -167,14 +177,15 @@ router.post('/', async function (req, res, next) {
 // get events
 router.get('/', async function (req, res, next) {
   try {
-    const events = await eventsController.getEvents()
+    const city = req.query.city || 'all';
+    const events = await eventsController.getEvents(city)
     res.status(200).json(events);
   } catch (err) {
     res.status(500).json(err.message)
   }
 });
 
-
+//get specific event
 router.get('/:id', async function (req, res, next) {
   try{
     const event = await eventsController.getEvent(req.params.id)
@@ -184,7 +195,7 @@ router.get('/:id', async function (req, res, next) {
   }
 });
 
-// Create new event
+// join event
 router.post('/join_event', async function (req, res, next) {
   try {
     const newParticipent = await eventsController.joinEvent(req.body)
@@ -193,4 +204,5 @@ router.post('/join_event', async function (req, res, next) {
     res.status(500).json(err.message)
   }
 });
+
 module.exports = router;

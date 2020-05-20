@@ -4,6 +4,7 @@ const db = require("../config/database");
 const Events = require('./events');
 const Users = require('./users');
 const EventsParticipents = require('./events_participents');
+const Cities = require('./cities');
 
 // events_participents
 // const Companies = require('./companies');
@@ -29,6 +30,7 @@ const EventsParticipents = require('./events_participents');
 const events = Events(db, Sequelize);
 const users = Users(db, Sequelize);
 const events_participents = EventsParticipents(db, Sequelize);
+const cities = Cities(db, Sequelize);
 
 
 // const available_vehicles = Available_vehicles(db, Sequelize);
@@ -133,5 +135,6 @@ db.sync({ force: false }).then(() => {
 module.exports = {
   events,
   users,
-  events_participents
+  events_participents,
+  cities
 }

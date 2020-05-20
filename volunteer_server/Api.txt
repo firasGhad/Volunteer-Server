@@ -33,3 +33,6 @@ get specific event with id including the creator data
 http://localhost:3001/events/:id
 get req
 ------------------------------------------
+get events filtered by city
+http://localhost:3001/events?city=אבו גוש
+get req
