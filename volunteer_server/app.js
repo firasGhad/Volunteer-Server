@@ -12,6 +12,7 @@ var eventsRouter = require('./routes/events');
 var citiesRouter = require('./routes/cities');
 var signUpRouter = require('./routes/signUp');
 var loginRouter = require('./routes/login');
+var organizationSignUpRouter = require('./routes/organizationSignUp');
 
 
 var schedule = require('node-schedule');
@@ -54,6 +55,7 @@ app.use('/cities', citiesRouter);
 app.use('/signup', signUpRouter);
 app.use('/login', loginRouter);
 
+app.use('/organization_signup', organizationSignUpRouter);
 
 
 
