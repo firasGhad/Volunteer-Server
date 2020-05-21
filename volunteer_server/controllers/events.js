@@ -1,6 +1,33 @@
-const { events, users, events_participents } = require('../models')
+const { events, users, events_participents, organizations_events, organizations } = require('../models')
 const { Op } = require("sequelize");
 const Sequelize = require('sequelize');
+
+const getOrganizationsEvents = async (query) => {
+  try {
+    let where ={};
+    if(query.city != 'all'){
+      where = {
+        location: query.city
+      }
+    }
+    if(query.type != 'all'){
+      where = {
+        type: query.type
+      }
+    }
+    let allEvents = await organizations_events.findAll({
+      where: where,
+      include: [{
+        model: organizations,
+      }]
+    });
+      return allEvents;
+  } catch (error) {
+    throw new Error(`Can't get events: ${error.message}`);
+  }
+
+
+}
 
 const getEventsIncludesMeAsParticipent = async () => {
   try {
@@ -170,7 +197,8 @@ module.exports = {
   joinEvent,
   getMyEvents,
   getEventsIncludesMeAsParticipent,
-  getEventParticipents
+  getEventParticipents,
+  getOrganizationsEvents
 
 }
 

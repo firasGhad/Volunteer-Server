@@ -7,6 +7,8 @@ const EventsParticipents = require('./events_participents');
 const Cities = require('./cities');
 const Organizations = require('./organizations');
 const OrganizationsMembers = require('./organizations_members');
+const OrganizationsEvents = require('./organizations_events');
+
 // events_participents
 // const Companies = require('./companies');
 // const Companies_files = require('./companies_files');
@@ -34,7 +36,7 @@ const events_participents = EventsParticipents(db, Sequelize);
 const cities = Cities(db, Sequelize);
 const organizations = Organizations(db, Sequelize);
 const organizations_members = OrganizationsMembers(db, Sequelize);
-
+const organizations_events = OrganizationsEvents(db, Sequelize);
 
 // const available_vehicles = Available_vehicles(db, Sequelize);
 // const companies = Companies(db, Sequelize);
@@ -134,6 +136,9 @@ const organizations_members = OrganizationsMembers(db, Sequelize);
 users.hasMany(events, { foreignKey: 'creator' })
 events.belongsTo(users, { foreignKey: 'creator' })
 
+organizations.hasMany(organizations_events, { foreignKey: 'creator' })
+organizations_events.belongsTo(organizations, { foreignKey: 'creator' })
+
 db.sync({ force: false }).then(() => {
     console.log('created');
 });
@@ -144,5 +149,6 @@ module.exports = {
   events_participents,
   cities,
   organizations,
-  organizations_members
+  organizations_members,
+  organizations_events
 }

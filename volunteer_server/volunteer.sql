@@ -170,6 +170,43 @@ INSERT INTO `organizations` VALUES (1,'apple','2','2','@hy','2','acre','11111','
 UNLOCK TABLES;
 
 --
+-- Table structure for table `organizations_events`
+--
+
+DROP TABLE IF EXISTS `organizations_events`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `organizations_events` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `description` varchar(45) DEFAULT NULL,
+  `location` varchar(45) DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `creator` varchar(45) DEFAULT NULL,
+  `creation_time` varchar(45) DEFAULT NULL,
+  `creation_date` varchar(45) DEFAULT NULL,
+  `start_time` varchar(45) DEFAULT NULL,
+  `end_time` varchar(45) DEFAULT NULL,
+  `participents_limit` varchar(45) DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `type` varchar(45) DEFAULT NULL,
+  `rating` varchar(45) DEFAULT NULL,
+  `start_date` varchar(45) DEFAULT NULL,
+  `end_date` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `organizations_events`
+--
+
+LOCK TABLES `organizations_events` WRITE;
+/*!40000 ALTER TABLE `organizations_events` DISABLE KEYS */;
+INSERT INTO `organizations_events` VALUES (1,'2',NULL,NULL,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `organizations_events` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `organizations_members`
 --
 
@@ -181,7 +218,7 @@ CREATE TABLE `organizations_members` (
   `organization_id` varchar(45) DEFAULT NULL,
   `user_id` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,6 +227,7 @@ CREATE TABLE `organizations_members` (
 
 LOCK TABLES `organizations_members` WRITE;
 /*!40000 ALTER TABLE `organizations_members` DISABLE KEYS */;
+INSERT INTO `organizations_members` VALUES (1,'1','1');
 /*!40000 ALTER TABLE `organizations_members` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -235,4 +273,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-21  2:28:31
+-- Dump completed on 2020-05-21  3:19:37

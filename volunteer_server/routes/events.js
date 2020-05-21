@@ -191,6 +191,23 @@ router.post('/', async function (req, res, next) {
   }
 });
 
+// get organizations events
+router.get('/organizations', async function (req, res, next) {
+  try {
+    const city = req.query.city || 'all';
+    const type = req.query.type || 'all';
+    const query = {
+      city: city,
+      type: type
+    }
+
+    const events = await eventsController.getOrganizationsEvents(query)
+    res.status(200).json(events);
+  } catch (err) {
+    res.status(500).json(err.message)
+  }
+});
+
 // get events
 router.get('/', async function (req, res, next) {
   try {
