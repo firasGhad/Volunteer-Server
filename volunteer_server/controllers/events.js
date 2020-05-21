@@ -180,7 +180,6 @@ const createEvent = async (event) => {
     status: event.status,
     type: event.type,
     rating: 1
-
     })
 
     return "Created successfully"
