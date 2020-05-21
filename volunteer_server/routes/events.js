@@ -184,7 +184,7 @@ router.get('/includes_me', async function (req, res, next) {
 // Create new event
 router.post('/', async function (req, res, next) {
   try {
-    const newEvent = await eventsController.createEvent(req.body)
+    newEvent = await eventsController.createEvent(req.body)
     res.status(200).json(newEvent);
   } catch (err) {
     res.status(500).json(err.message)

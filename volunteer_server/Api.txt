@@ -57,3 +57,7 @@ events that the user joined
 http://localhost:3001/events/includes_me
 --------------------------------------------------
 get all the participents info for specific event
+http://localhost:3001/events/participents/:id
+----------------------\
+http://localhost:3001/cities 
+get all cities

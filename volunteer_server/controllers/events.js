@@ -183,7 +183,7 @@ const createEvent = async (event) => {
 
     })
 
-    return "נוצר בהצלחה"
+    return "Created successfully"
   } catch (err) {
     throw new Error(`Can't create event: ${err.message}`)
   }

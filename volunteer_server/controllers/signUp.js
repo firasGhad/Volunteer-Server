@@ -17,8 +17,7 @@ const signUp = async (userDetails, userId) => {
             gender: userDetails.gender,
             rank: 1
         })
-    
-        return "נוצר בהצלחה"
+        return "Created successfully"
       }  catch (err) {
         throw new Error(err.message)
     }
@@ -40,7 +39,7 @@ const organizationSignUp = async (userDetails, userId) => {
             rank: 1
         })
     
-        return "נוצר בהצלחה"
+        return "Created successfully"
       }  catch (err) {
         throw new Error(err.message)
     }
