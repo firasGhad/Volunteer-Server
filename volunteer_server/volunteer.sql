@@ -98,7 +98,7 @@ CREATE TABLE `events` (
   `type` varchar(45) DEFAULT NULL,
   `rating` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,7 +107,7 @@ CREATE TABLE `events` (
 
 LOCK TABLES `events` WRITE;
 /*!40000 ALTER TABLE `events` DISABLE KEYS */;
-INSERT INTO `events` VALUES (1,'eyas2@eyas.com','abu_sinan','10',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'food',NULL),(2,'cleaning','abu_sinan','volunteer',1,'firas, eyab',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'active','food',NULL),(3,'cleaning','abu_sinan','volunteer',1,'firas, eyab',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'active',NULL,NULL),(4,'cleaning','abu_sinan','volunteer',2,'firas, eyab','12:00:00','22-12-20','12:00:00','12:00:00','22-12-20','22-12-20',1,'active',NULL,NULL);
+INSERT INTO `events` VALUES (1,'cleaning the school','אבו סנאן','Firas Ghadban',1,'Firas, Eyab, Ibraheem','12:00:00','22-05-20','18:00:00','22:00:00','24-05-20','24-05-20',10,'active','Cleaning',2),(2,'Visiting the hospital patient','נצרת','Ibraheem Ghanayem',2,'Sam, Ibraheem, John','12:00:00','18-05-20','18:00:00','22:00:00','24-05-20','24-05-20',5,'active','Hospital visits',2),(3,'Making show at the infirmary for eldersl','אם אלקטף','Eyab Kabha',3,'Eyab, Eyas','12:00:00','13-05-20','08:00:00','14:00:00','22-05-20','28-05-20',20,'active','Help eldery',2),(4,'Buying gifts for the orphanage before EID.l','סכנין','Firas Ghadban',1,'Firas, Eyab, Ibraheem','14:00:00','23-05-20','10:00:00','16:00:00','24-05-20','28-05-20',100,'active','Orphanage activities',2),(5,'Planting trees in the park','עכו','Eyab Kabha',3,'Firas, Eyab, Ibraheem','11:00:00','22-05-20','18:00:00','22:00:00','24-05-20','29-05-20',10,'active','Environment greening',2),(6,'Sanitizing the schools','נצרת','Ibraheem Ghanayem',2,'Sam, Ibraheem, John','07:00:00','18-05-20','08:00:00','11:00:00','24-05-20','24-05-20',5,'active','Hospital visits',2);
 /*!40000 ALTER TABLE `events` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -260,7 +260,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'firas','sam','@hy','123','1231','123','acre','male','s',NULL),(2,'2','2','2','2','2','2','2','male','2',NULL),(3,'2','2','2','2','2','2','2','male','2',NULL),(4,'2','2','2','2','2','2','2','male','2',NULL),(5,'2','2','2','2','2','2','2','male','2',1),(6,NULL,NULL,'@hy','123','2','2','2',NULL,NULL,1);
+INSERT INTO `users` VALUES (1,'Firas','Ghadban','@hy','123','1231','123','אבו סנאן','male','Firas',2),(2,'Ibraheem','Ghanayem','@hy','123','1231','123','סכנין','male','Ibraheem',2),(3,'Eyab','Kabha','@hy','123','1231','123','אם אלקטף','male','Eyab',2);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -273,4 +273,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-21  3:19:37
+-- Dump completed on 2020-05-22 12:38:07
